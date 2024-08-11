@@ -35,7 +35,6 @@ Este projeto é um dashboard desenvolvido com Next.js, incluindo autenticação 
         ```bash
         NEXTAUTH_URL=http://localhost:3000
         NEXTAUTH_SECRET=sua_chave_secreta
-        DATABASE_URL=sua_url_de_banco_de_dados
         ```
 
 4. **Inicie o servidor de desenvolvimento:**
@@ -43,17 +42,3 @@ Este projeto é um dashboard desenvolvido com Next.js, incluindo autenticação 
     npm run dev
     ```
     O projeto estará acessível em `http://localhost:3000`.
-
-## Estrutura do Projeto
-
-```bash
-├── public
-├── src
-│   ├── components
-│   ├── pages
-│   ├── styles
-│   └── utils
-├── .env.local.example
-├── README.md
-├── next.config.js
-└── package.json
