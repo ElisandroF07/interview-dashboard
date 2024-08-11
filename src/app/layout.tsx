@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
+'use client'
 import { Inter } from "next/font/google";
+import { Toaster } from "sonner";
 import "@/styles/globals.css";
+import NextAuthSessionProvider from "@/providers/sessionProvider";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "Dashboard",
-  description: "Dashbaord for the T-ALPHA Interview",
-};
+const queryClient = new QueryClient()
 
 export default function RootLayout({
   children,
@@ -16,7 +16,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={inter.className}>{children}</body>
+      <head>
+        <title>T-ALPHA</title>
+      </head>
+      <body className={inter.className}>
+        <NextAuthSessionProvider>
+        <QueryClientProvider client={queryClient}>
+          {children}
+        </QueryClientProvider>
+        </NextAuthSessionProvider>
+        <Toaster richColors position="top-right"/>
+      </body>
     </html>
   );
 }
